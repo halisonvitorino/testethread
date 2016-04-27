@@ -24,12 +24,12 @@ carroThread.start();
 public void run() {
 posX += new Random().nextInt(3) * 10;
 this.setLocation( posX, posY);
-if (posX >=  1280)
+if ( posX >=  1280)
 return;
 try {
-Thread.sleep( new Random().nextInt(5) * 100);
+Thread.sleep( new Random().nextInt(5) *  100);
 run();
-} catch (Exception e) {
+} catch ( Exception e) {
 e.printStackTrace();
 }
 }
