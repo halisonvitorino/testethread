@@ -11,8 +11,8 @@ private ImageIcon imagem;
 public CarroThread() {
 }
 // CONSTRUTOR SOBRECARREGADO
-public CarroThread(String nome, ImageIcon img, int posX, int posY){
-super(img);
+public CarroThread(String nome, ImageIcon  img, int posX, int posY){
+super( img);
 this.imagem = img;
 this.posX = posX;
 this.posY = posY;
