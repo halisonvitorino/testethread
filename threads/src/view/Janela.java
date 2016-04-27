@@ -26,8 +26,11 @@ private ImageIcon pista;
 private ImageIcon velocimetro;
 public Janela() {
 super();
+
+
 // ADICIONANDO ELEMENTOS AO FORMULÁRIO
-this.setLayout(null);this.setSize(1280, 650);
+this.setLayout(null);
+this.setSize(1280, 650);
 this.setLocation(50, 50);
 this.setResizable(false);
 getContentPane().setBackground(Color.white);this.setTitle("Rally Magé Extreme 2012");
@@ -35,6 +38,8 @@ velocimetro = new ImageIcon("./src/imagens/velocimetro.gif");
 pista = new ImageIcon("./src/imagens/pista.png");
 this.lblPista = new JLabel(pista);
 this.lblVelocimetro = new JLabel(velocimetro);
+
+
 // POSICIONANDO OS ELEMENTOS DO FORM
 this.lblVelocimetro.setBounds(200, 490, 150, 150);
 this.lblPista.setBounds(0, 0, 1280, 650);
@@ -43,13 +48,17 @@ this.lblPista.add(lblVelocimetro);
 this.lblPista.setBackground(Color.BLACK);
 this.btnCorrida = new JButton("Start Rally");
 this.btnCancel = new JButton("Stop Rally");
+
+
 // POSIONADO OS BOTÕES
 this.btnCorrida.setBounds(500, 550, 120, 50);
 this.btnCancel.setBounds(640, 550, 120, 50);
+
+
 // INSERINDO AS IMAGENS DOS CARROS
-imgCarro1 = new ImageIcon("./src/imagens/carro1.png");
-imgCarro2 = new ImageIcon("./src/imagens/carro2.png");
-imgCarro3 = new ImageIcon("./src/imagens/carro3.png");
+imgCarro1 = new ImageIcon("src/imagens/carro1.png");
+imgCarro2 = new ImageIcon("src/imagens/carro2.png");
+imgCarro3 = new ImageIcon("src/imagens/carro3.png");
 this.lblPista.add(btnCorrida);
 this.lblPista.add(btnCancel);
 this.setVisible(true);
@@ -63,6 +72,8 @@ jPanel.setBorder(BorderFactory.createTitledBorder("[Grupo de Trabalho]"));
 jPanel.setVisible(true);
 this.repaint();
 }
+
+
 // INSERINDO AS JLABELS DOS CARROS
 public JLabel JLabelCarros(String nome, ImageIcon img, int posX, int posY) {
 CarroThread carro = new CarroThread(nome, img, posX, posY);
@@ -71,6 +82,8 @@ carro.setVisible(true);
 this.add(carro);
 return carro;
 }
+
+
 // PROGRAMANDO A AÇÃO DOS BOTÕES
 @Override
 public void actionPerformed(ActionEvent dispara) {if (dispara.getSource() == this.btnCorrida) {
@@ -78,8 +91,7 @@ this.lblPista.add(JLabelCarros("Carro1", imgCarro1, 0, 50));
 this.lblPista.add(JLabelCarros("Carro1", imgCarro2, 0, 200));
 this.lblPista.add(JLabelCarros("Carro1", imgCarro3, 0, 350));
 }
-if (dispara.getSource() == this.btnCancel) {
-System.exit(0);
-}
+
+if (dispara.getSource() == this.btnCancel) {System.exit(0);}
 }
 }
