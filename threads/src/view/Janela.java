@@ -1,71 +1,72 @@
 package view;
 import java.awt.Color;
-import java.awt.LayoutManager;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
+import javax.swing.SpringLayout;
 import control.CarroThread;
-@SuppressWarnings("serial")
+
+
 public class Janela extends JFrame implements ActionListener {
+
+private JPanel jpPrincipal, jpSecundario;
 private JButton btnCorrida, btnCancel;
-private JLabel lblPista, lblVelocimetro;
-private ImageIcon imgCarro1, imgCarro2, imgCarro3, pista, velocimetro;
+private JLabel lblPista ;
+private ImageIcon imgCarro1, imgCarro2, imgCarro3, pista;
+
 public Janela() {
-super();
+	
+	
+setSize(500,500);
+SpringLayout layout = new SpringLayout();
+setBackground(Color.blue);
+setVisible(true);
+
+jpPrincipal = new JPanel(layout);
+jpPrincipal.setPreferredSize(new Dimension(100,100));
+jpPrincipal.setBackground(Color.BLACK);
 
 
-// ADICIONANDO ELEMENTOS AO FORMULÁRIO
-this.setLayout(null);
-this.setSize(1280, 650);
-this.setLocation(50, 50);
-this.setResizable(false);
-getContentPane().setBackground(Color.blue);this.setTitle("Rally");
+jpSecundario = new JPanel();
+jpSecundario.setPreferredSize(new Dimension(200,200));
+jpSecundario.setBackground(Color.BLUE);
 
-velocimetro = new ImageIcon("./src/imagens/velocimetro.gif");
+
 pista       = new ImageIcon("./src/imagens/pista.png");
-this.lblPista       = new JLabel(pista);
-this.lblVelocimetro = new JLabel(velocimetro);
+imgCarro1   = new ImageIcon("./src/imagens/carro1.png");
+imgCarro2   = new ImageIcon("./src/imagens/carro2.png");
+imgCarro3   = new ImageIcon("./src/imagens/carro3.png");
 
-
-// POSICIONANDO OS ELEMENTOS DO FORM
-this.lblVelocimetro.setBounds(200, 490, 150, 150);
-this.lblPista.setBounds(0, 0, 1280, 650);
-this.add(lblPista);
-this.lblPista.add(lblVelocimetro);
-this.btnCorrida = new JButton("Start Rally");
-this.btnCancel = new JButton("Stop Rally");
-
-
-// POSIONADO OS BOTÕES
-this.btnCorrida.setBounds(500, 550, 120, 50);
-this.btnCancel.setBounds(640, 550, 120, 50);
-
-
-// INSERINDO AS IMAGENS DOS CARROS
-imgCarro1 = new ImageIcon("./src/imagens/carro1.png");
-imgCarro2 = new ImageIcon("./src/imagens/carro2.png");
-imgCarro3 = new ImageIcon("./src/imagens/carro3.png");
-this.lblPista.add(btnCorrida);
-this.lblPista.add(btnCancel);
-this.setVisible(true);
+//CRIANDO BOTOES
+btnCorrida = new JButton("Start");
+btnCancel  = new JButton("Stop");
+btnCorrida.setBounds(500, 550, 120, 50);
+btnCancel .setBounds(640, 550, 120, 50);
 btnCorrida.addActionListener(this);
 btnCancel .addActionListener(this);
-JPanel jPanel = new JPanel();
-jPanel.setSize(500, 70);
-jPanel.setBackground(Color.red);
-jPanel.setLayout(null);
-jPanel.setLocation(970, 510);
-jPanel.setBorder(BorderFactory.createTitledBorder("[Grupo de Trabalho]"));
-jPanel.setVisible(true);
+
+//CRIANDO BOTOES
+btnCorrida = new JButton("Start");
+btnCancel  = new JButton("Stop");
+btnCorrida.setBounds(500, 550, 120, 50);
+btnCancel .setBounds(640, 550, 120, 50);
+
+add(jpPrincipal);
+
+jpPrincipal.add(btnCancel);
+jpPrincipal.add(btnCorrida);
+
+jpSecundario.setVisible(true);
+jpPrincipal.setVisible(true);
+
 this.repaint();
+
+
 }
 
 
@@ -74,7 +75,7 @@ public JLabel JLabelCarros(String nome, ImageIcon img, int posX, int posY) {
 CarroThread carro = new CarroThread(nome, img, posX, posY);
 carro.setSize(256, 141);
 carro.setVisible(true);
-this.add(carro);
+jpPrincipal.add(carro);
 return carro;
 }
 
