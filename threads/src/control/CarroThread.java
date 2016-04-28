@@ -7,18 +7,24 @@ private Thread carroThread = null;
 private int posX;
 private int posY;
 private ImageIcon imagem;
+
+
 // CONSTRUTOR DEFAULT
 public CarroThread() {
 }
+
+
 // CONSTRUTOR SOBRECARREGADO
 public CarroThread(String nome, ImageIcon  img, int posX, int posY){
-super( img);
+super(img);
 this.imagem = img;
 this.posX = posX;
 this.posY = posY;
 carroThread = new Thread(this, nome);
 carroThread.start();
 }
+
+
 // MÉTODO RUN() DA INTERFACE RUNNABLE
 @Override
 public void run() {
@@ -29,8 +35,5 @@ return;
 try {
 Thread.sleep( new Random().nextInt(5) *  100);
 run();
-} catch ( Exception e) {
-e.printStackTrace();
-}
-}
-}
+} catch ( Exception e) {e.printStackTrace();}
+}}

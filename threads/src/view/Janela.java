@@ -15,15 +15,9 @@ import javax.swing.JPanel;
 import control.CarroThread;
 @SuppressWarnings("serial")
 public class Janela extends JFrame implements ActionListener {
-private JButton btnCorrida;
-private JButton btnCancel;
-private JLabel lblPista;
-private JLabel lblVelocimetro;
-private ImageIcon imgCarro1;
-private ImageIcon imgCarro2;
-private ImageIcon imgCarro3;
-private ImageIcon pista;
-private ImageIcon velocimetro;
+private JButton btnCorrida, btnCancel;
+private JLabel lblPista, lblVelocimetro;
+private ImageIcon imgCarro1, imgCarro2, imgCarro3, pista, velocimetro;
 public Janela() {
 super();
 
@@ -33,10 +27,11 @@ this.setLayout(null);
 this.setSize(1280, 650);
 this.setLocation(50, 50);
 this.setResizable(false);
-getContentPane().setBackground(Color.white);this.setTitle("Rally Magé Extreme 2012");
+getContentPane().setBackground(Color.blue);this.setTitle("Rally");
+
 velocimetro = new ImageIcon("./src/imagens/velocimetro.gif");
-pista = new ImageIcon("./src/imagens/pista.png");
-this.lblPista = new JLabel(pista);
+pista       = new ImageIcon("./src/imagens/pista.png");
+this.lblPista       = new JLabel(pista);
 this.lblVelocimetro = new JLabel(velocimetro);
 
 
@@ -45,7 +40,6 @@ this.lblVelocimetro.setBounds(200, 490, 150, 150);
 this.lblPista.setBounds(0, 0, 1280, 650);
 this.add(lblPista);
 this.lblPista.add(lblVelocimetro);
-this.lblPista.setBackground(Color.BLACK);
 this.btnCorrida = new JButton("Start Rally");
 this.btnCancel = new JButton("Stop Rally");
 
@@ -56,16 +50,17 @@ this.btnCancel.setBounds(640, 550, 120, 50);
 
 
 // INSERINDO AS IMAGENS DOS CARROS
-imgCarro1 = new ImageIcon("src/imagens/carro1.png");
-imgCarro2 = new ImageIcon("src/imagens/carro2.png");
-imgCarro3 = new ImageIcon("src/imagens/carro3.png");
+imgCarro1 = new ImageIcon("./src/imagens/carro1.png");
+imgCarro2 = new ImageIcon("./src/imagens/carro2.png");
+imgCarro3 = new ImageIcon("./src/imagens/carro3.png");
 this.lblPista.add(btnCorrida);
 this.lblPista.add(btnCancel);
 this.setVisible(true);
 btnCorrida.addActionListener(this);
-btnCancel.addActionListener(this);
+btnCancel .addActionListener(this);
 JPanel jPanel = new JPanel();
-jPanel.setSize(300, 70);
+jPanel.setSize(500, 70);
+jPanel.setBackground(Color.red);
 jPanel.setLayout(null);
 jPanel.setLocation(970, 510);
 jPanel.setBorder(BorderFactory.createTitledBorder("[Grupo de Trabalho]"));
@@ -87,11 +82,13 @@ return carro;
 // PROGRAMANDO A AÇÃO DOS BOTÕES
 @Override
 public void actionPerformed(ActionEvent dispara) {if (dispara.getSource() == this.btnCorrida) {
-this.lblPista.add(JLabelCarros("Carro1", imgCarro1, 0, 50));
-this.lblPista.add(JLabelCarros("Carro1", imgCarro2, 0, 200));
-this.lblPista.add(JLabelCarros("Carro1", imgCarro3, 0, 350));
-}
+	this.lblPista.add(JLabelCarros("Carro1", imgCarro1, 0, 50));
+	this.lblPista.add(JLabelCarros("Carro1", imgCarro2, 0, 200));
+	this.lblPista.add(JLabelCarros("Carro1", imgCarro3, 0, 350));
+	}
 
-if (dispara.getSource() == this.btnCancel) {System.exit(0);}
+if (dispara.getSource() == this.btnCancel) {
+	System.exit(0);
+	}
 }
 }
