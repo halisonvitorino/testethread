@@ -28,7 +28,7 @@ carroThread.start();
 // MÉTODO RUN() DA INTERFACE RUNNABLE
 @Override
 public void run() {
-posX += new Random().nextInt(3) * 10;
+posX += new Random().nextInt(3) * 5;
 this.setLocation( posX, posY);
 if ( posX >=  1280)
 return;

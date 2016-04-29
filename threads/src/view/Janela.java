@@ -23,6 +23,7 @@ public Janela() {
 	jfJanela.setLocationRelativeTo(null);
 	jfJanela.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10)); 
 	jfJanela.setResizable(false);
+	jfJanela.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	jpPrincipal = new JPanel();
 	jpPrincipal.setPreferredSize(new Dimension(900, 550)); 
@@ -34,9 +35,9 @@ public Janela() {
 	//jpSecundario.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 500)); 
 	//jpSecundario.setBackground(Color.BLUE);
 	
-	ImageIcon img = new ImageIcon("./src/imagens/pista.png");
+	ImageIcon img = new ImageIcon("./src/imagens/pista2.png");
 	JLabel label  = new JLabel(img);
-	label.setBounds(300, 100, 300, 100);
+	label.setBounds(0, 0, 900, 550);
 		
 	imgCarro1   = new ImageIcon("./src/imagens/carro1.png");
 	imgCarro2   = new ImageIcon("./src/imagens/carro2.png");
@@ -70,7 +71,7 @@ public Janela() {
 // INSERINDO AS JLABELS DOS CARROS
 public JLabel JLabelCarros(String nome, ImageIcon img, int posX, int posY) {
 CarroThread carro = new CarroThread(nome, img, posX, posY);
-carro.setSize(256, 141);
+carro.setSize(5, 500);
 carro.setVisible(true);
 jpPrincipal.add(carro);
 return carro;
@@ -80,9 +81,9 @@ return carro;
 // PROGRAMANDO A AÇÃO DOS BOTÕES
 @Override
 public void actionPerformed(ActionEvent dispara) {if (dispara.getSource() == this.btnCorrida) {
-	this.jpPrincipal.add(JLabelCarros("Carro1", imgCarro1, 0, 100));
-	this.jpPrincipal.add(JLabelCarros("Carro1", imgCarro2, 0, 100));
-	this.jpPrincipal.add(JLabelCarros("Carro1", imgCarro3, 0, 100));
+	this.jpPrincipal.add(JLabelCarros("Carro1", imgCarro1, 0, 30));
+	this.jpPrincipal.add(JLabelCarros("Carro1", imgCarro2, 0, 30));
+	this.jpPrincipal.add(JLabelCarros("Carro1", imgCarro3, 0, 30));
 	}
 
 
