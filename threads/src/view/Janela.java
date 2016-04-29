@@ -18,7 +18,7 @@ public class Janela extends JFrame implements ActionListener {
 	private ImageIcon imgCarro1, imgCarro2, imgCarro3, pista;
 
 public Janela() {
-	jfJanela = new JFrame();
+	jfJanela = new JFrame("Nasa Ralli Sport");
 	jfJanela.setSize(950,700);
 	jfJanela.setLocationRelativeTo(null);
 	jfJanela.setBackground(Color.black);
@@ -29,7 +29,7 @@ public Janela() {
 	jpPrincipal = new JPanel();
 	jpPrincipal.setPreferredSize(new Dimension(895, 540)); 
 	jpPrincipal.setLayout(null); 
-	jpPrincipal.setBackground(Color.black);
+	jpPrincipal.setBackground(Color.white);
 	
 	ImageIcon img = new ImageIcon("./src/imagens/pista3.png");
 	JLabel label  = new JLabel(img);
