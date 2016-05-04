@@ -13,7 +13,7 @@ import control.CarroThread;
 
 public class Janela extends JFrame implements ActionListener {
 	private JFrame jfJanela;
-	private JPanel jpPrincipal, jpSecundario;
+	private JPanel jpPrincipal;
 	private JButton btnCorrida, btnCancel;
 	private ImageIcon imgCarro1, imgCarro2, imgCarro3, pista;
 
@@ -46,12 +46,12 @@ public Janela() {
 	btnCorrida.addActionListener(this);
 	btnCancel .addActionListener(this);
 	
-	jfJanela.add(jpPrincipal);
+	jfJanela   .add(jpPrincipal);
 	jpPrincipal.add(label);
-	jfJanela.add(btnCancel);
-	jfJanela.add(btnCorrida);
+	jfJanela   .add(btnCancel);
+	jfJanela   .add(btnCorrida);
 		
-	jfJanela.setVisible(true);
+	jfJanela   .setVisible(true);
 	jpPrincipal.setVisible(true);
 		
 	this.repaint();
@@ -68,8 +68,8 @@ return carro;
 @Override
 public void actionPerformed(ActionEvent dispara) {if (dispara.getSource() == this.btnCorrida) {
 	this.jpPrincipal.add(JLabelCarros("Carro1", imgCarro1, 0, 30));
-	this.jpPrincipal.add(JLabelCarros("Carro1", imgCarro2, 0, 30));
-	this.jpPrincipal.add(JLabelCarros("Carro1", imgCarro3, 0, 30));
+	this.jpPrincipal.add(JLabelCarros("Carro2", imgCarro2, 0, 30));
+	this.jpPrincipal.add(JLabelCarros("Carro3", imgCarro3, 0, 30));
 	}
 
 if (dispara.getSource() == this.btnCancel) {
