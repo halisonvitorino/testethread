@@ -28,23 +28,8 @@ public void run() {
 	this.setLocation( posX, posY);
 	
 	for (int i = posX ; i<800; i++){
-		JOptionPane pane = new JOptionPane(this.posX);
-		JDialog dialog = pane.createDialog("Titulo");
-		dialog.setLocation(800,100);
-        dialog.setVisible(true);}
+		JOptionPane pane = new JOptionPane(this.posX);}
 		
-	if (posX == 800){
-		JOptionPane pane = new JOptionPane("Chegou!!! ");
-        JDialog dialog = pane.createDialog("Titulo");
-        dialog.setLocation(800,100);
-        dialog.setVisible(true);
-        dialog.dispose(); 
-        run();} 
-	
-	//while (posX < 800){
-		//;}
-        
-	
 	if (posX >=  800)	return;
 		try {Thread.sleep( new Random().nextInt(10) * 10); run();} 
 		catch ( Exception e) {e.printStackTrace();}
