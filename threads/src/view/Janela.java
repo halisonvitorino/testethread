@@ -13,8 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import control.CarroThread;
-
-public class Janela extends JApplet implements ActionListener {
+import java.applet.*;
+public class Janela extends Applet implements ActionListener {
 	private JFrame jfJanela;
 	private JPanel jpPrincipal;
 	private JButton btnCorrida, btnCancel;
